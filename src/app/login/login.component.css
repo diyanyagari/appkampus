@@ -1,0 +1,16 @@
+.change-form {
+  color: #54a7ff;
+  cursor: pointer;
+}
+
+.change-form:hover {
+  color: #006aff;
+  cursor: pointer;
+}
+
+@media (min-width: 703px) {
+  .card-login {
+    margin-top: 10%;
+    margin-left: 35%;
+  }
+}
