@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UpdateBarService } from '../update-bar.service';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -26,7 +27,7 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private closeBar: UpdateBarService) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
@@ -39,6 +40,7 @@ export class SidebarComponent implements OnInit {
   };
 
   onLogout() {
+    this.closeBar.closeBar();
     this.router.navigate(['/login']);
     if (sessionStorage.getItem('token')) {
       sessionStorage.removeItem('token');
